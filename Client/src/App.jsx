@@ -8,7 +8,7 @@ import {
   LoginPage,
 } from "./pages/LoginPage";
 import { Root } from "./layout/Root";
-import { VerifyPage } from "./pages/verifyPage";
+import { VerifyPage } from "./pages/VerifyPage";
 
 const router = createBrowserRouter([
   {
