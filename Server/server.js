@@ -60,6 +60,27 @@ app.delete('/api/v1/user',isAuthenticated, async(req, res) => {
 
 
 app.post('/api/v1/postCar',isAuthenticated, async(req, res) => {
+  try{
+    
+     const { carName, licenseNumber,ownerId  } = req.body;
+    if (!carName || !licenseNumber || !ownerId) {
+      res.status(400);
+      throw new Error('You must provide an licenseNumber and a carName.');
+    }
+
+    const existingUser = await findCarByLicence(licenseNumber);
+
+    if (!existingUser) {
+      res.status(403);
+      throw new Error('Invalid Email credentials.');
+    }
+
+
+  } catch(e){
+    console.log(e);
+  }
+  
+
   const car = await createCar(req.body);
   console.log(car);
   res.json(car);

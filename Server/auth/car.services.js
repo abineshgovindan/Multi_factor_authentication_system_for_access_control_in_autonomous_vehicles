@@ -7,6 +7,7 @@ function createCar(car) {
     data: car,
   });
 }
+
 function deleteCarById(id){
   return db.car.delete({
     where: {id},
