@@ -16,8 +16,8 @@ export async function action({ request }) {
     
     const url =
       type === "register"
-        ? "http://localhost:3000/api/v1/auth/register"
-        : "http://localhost:3000/api/v1/auth/login";
+        ? "https://multi-factor-authentication-system-for.onrender.com/api/v1/auth/register"
+        : "https://multi-factor-authentication-system-for.onrender.com/api/v1/auth/login";
       
     
 
@@ -29,9 +29,9 @@ export async function action({ request }) {
       password,
     });
     
-    const { accessToken, refreshToken, userId, number } = data;
+    const { accessToken, refreshToken, userId} = data;
     console.log(userId);
-    return { tokens: { accessToken, refreshToken, userId , number}, error: null };
+    return { tokens: { accessToken, refreshToken, userId }, error: null };
   } catch (error) {
     return {
       error: error.response.data.message || error.message,

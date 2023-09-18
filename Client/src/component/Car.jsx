@@ -22,7 +22,7 @@ const Car = ({number, carId, carName, licenseNumber}) => {
         event.preventDefault();
         
         if (isLoggedIn){
-        axios.delete(`http://localhost:3000/api/v1/car?id=${carId}`,
+        axios.delete(`https://multi-factor-authentication-system-for.onrender.com/api/v1/car?id=${carId}`,
         config
         ).then((response) => {
             console.log(response);
@@ -36,7 +36,7 @@ const Car = ({number, carId, carName, licenseNumber}) => {
    
     async function handleOpen(event){
         event.preventDefault();
-        const data = await axios.post("http://localhost:3000/api/v1/send-verification",
+        const data = await axios.post("https://multi-factor-authentication-system-for.onrender.com/api/v1/send-verification",
         bodyParameters,
         config
         );

@@ -41,7 +41,7 @@ const User = (props) => {
   async function registerUser(event) {
     event.preventDefault();
     if (isLoggedIn){
-      const data = await axios.post("http://localhost:3000/api/v1/postCar",
+      const data = await axios.post("https://multi-factor-authentication-system-for.onrender.com/api/v1/postCar",
       bodyParameters,
       config
       );

@@ -13,7 +13,7 @@ export function HomePage() {
   useEffect(() => {
     if (isLoggedIn)
       axios
-        .get(`http://localhost:3000/api/v1/user?id=${userId}`, {
+        .get(`https://multi-factor-authentication-system-for.onrender.com/api/v1/user?id=${userId}`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },

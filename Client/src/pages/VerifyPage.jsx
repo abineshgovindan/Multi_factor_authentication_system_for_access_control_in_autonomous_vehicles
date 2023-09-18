@@ -31,7 +31,7 @@ export function VerifyPage(){
   async function verifyOTP(event) {
     event.preventDefault();
     if (isLoggedIn){
-      const data = await axios.post("http://localhost:3000/api/v1/verify-otp",
+      const data = await axios.post("https://multi-factor-authentication-system-for.onrender.com/api/v1/verify-otp",
       bodyParameters,
       config
       );
