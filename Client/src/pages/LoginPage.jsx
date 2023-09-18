@@ -21,7 +21,7 @@ export async function action({ request }) {
       
     
 
-    const mobileNumber = '+91' + Number;
+    const mobileNumber = '+' + Number;
     const { data } = await axios.post(url, {
       name,
       mobileNumber,
