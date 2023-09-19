@@ -56,32 +56,34 @@ export function VerifyPage(){
         <>
            {isLoggedIn ? (
                 <>
-                <div className="items-center justify-center px-10 py-10">
-                    <h2 className=" flex text-2xl justify-center mt-25 font-sans items-center">Verify</h2>
+                <div className=" flex items-center justify-center px-10 py-10">
+                    
                     <form onSubmit={verifyOTP}>
+                      <h2 className=" flex text-2xl justify-center mt-25 font-sans items-center">Verify</h2>
                         <input type="text" 
                         value={licenseNumber} 
                         onChange={(e)=> setlicenseNumber(e.target.value)}
                         placeholder=" License Number" 
-                        className="flex input input-bordered mt-5 input-info w-full max-w-xs" />
+                        className=" input justify-center items-center input-bordered mt-5 input-info w-full max-w-xs" />
                         <input type="text" 
                          value={OTPNumber} 
                         onChange={(e)=> setOTPNumber(e.target.value)}
-                        placeholder="OTP here" 
+                        placeholder="OTP Number" 
                         className="flex input input-bordered mt-5 input-info w-full max-w-xs" />
                         <div className="flex justify-center items-center">
-                            <button type="submit" className=" btn btn-outline btn-info btn w-32 h-11 mt-3 rounded-full">
+                            <button type="submit" className=" btn btn-outline btn-info btn w-32 h-11 mt-5 rounded-full">
                             verify
                          </button>
-                         <br />
-                        
                          
-
+                      
                         </div>
-                         
-
                     </form>
-                     <div className="flex mt-10 justify-center">
+                    </div>
+                    
+                    
+
+
+                     <div className=" flex mt-6 justify-center">
                             {TrueFun && <div>
                             <h3 className="text-2xl text-green-300"> Your OTP Valid</h3>
                             </div>}
@@ -90,7 +92,7 @@ export function VerifyPage(){
                             </div>}
 
                          </div>
-                    </div>
+                    
                 
                 
                 
