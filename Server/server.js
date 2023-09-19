@@ -91,6 +91,15 @@ app.post('/api/v1/postCar',isAuthenticated, async(req, res) => {
   
   
 })
+app.get('/api/v1/userCar',isAuthenticated, async(req, res) => {
+  const UserId = req.query.id;
+  console.log(UserId);
+  const cars = await findUserById(UserId);
+  console.log(cars);
+  res.json(cars.Car);
+  
+})
+
 app.get('/api/v1/car',isAuthenticated, async(req, res) => {
   const carId = req.query.id;
   console.log(carId);

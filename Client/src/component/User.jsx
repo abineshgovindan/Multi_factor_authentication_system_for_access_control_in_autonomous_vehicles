@@ -18,6 +18,7 @@ const User = (props) => {
 
   const [carName, setcarName] = useState('');
   const [licenseNumber, setLicenseNumber] = useState('');
+  const [userCar, setUserCar] = useState([])
   const ownerId = props.id;
   console.log(ownerId + " owner id");
   
@@ -56,6 +57,27 @@ const User = (props) => {
 
   }
 
+  
+// http://localhost:3000/api/v1/userCar
+
+
+
+  useEffect(() => {
+    if (isLoggedIn)
+      axios
+        .get(`https://multi-factor-authentication-system-for.onrender.com/api/v1/userCar?id=${userId}`,config)
+        .then(({ data }) => {
+          
+          setUserCar(data);
+          console.log(data);
+          
+        })
+        .catch((error) => {
+          if (error.response.data.message === "TokenExpiredError") {
+            logout();
+          }
+        });
+  }, []);
 
 
   
