@@ -91,7 +91,7 @@ app.post('/api/v1/postCar',isAuthenticated, async(req, res) => {
   
   
 })
-app.get('/api/v1/userCar', async(req, res) => {
+app.get('/api/v1/userCar',isAuthenticated, (req, res) => {
   
   const UserId = req.query.id;
   console.log(UserId);
