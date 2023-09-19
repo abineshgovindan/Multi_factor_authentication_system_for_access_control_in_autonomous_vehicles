@@ -18,7 +18,9 @@ const User = (props) => {
 
   const [carName, setcarName] = useState('');
   const [licenseNumber, setLicenseNumber] = useState('');
-  const [userCar, setUserCar] = useState([])
+  const [userCar, setUserCar] = useState([]);
+  const [fetchTrigger, setFetchTrigger] = useState('');
+
   const ownerId = props.id;
   console.log(ownerId + " owner id");
   
@@ -49,6 +51,7 @@ const User = (props) => {
       config
       );
     console.log(data)
+    setFetchTrigger('data')
     
     
 
@@ -59,7 +62,6 @@ const User = (props) => {
 
   
 // http://localhost:3000/api/v1/userCar
-
 
 
   useEffect(() => {
@@ -77,7 +79,7 @@ const User = (props) => {
             logout();
           }
         });
-  }, []);
+  }, [fetchTrigger]);
 
 
   
@@ -116,7 +118,7 @@ return(
             </div>
             <br/>
             <div className="outline outline-offset-2 outline-blue-500 ">
-              {props.Car?.map((items)=>(
+              {userCar?.map((items)=>(
                <Car key={items.id} 
                number={props.mobileNumber} 
                carId = {items.id}

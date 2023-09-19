@@ -91,12 +91,25 @@ app.post('/api/v1/postCar',isAuthenticated, async(req, res) => {
   
   
 })
-app.get('/api/v1/userCar',isAuthenticated, async(req, res) => {
+app.get('/api/v1/userCar', async(req, res) => {
+  
   const UserId = req.query.id;
   console.log(UserId);
+
+  if(!UserId){
+    res.sendStatus(403);
+  }
+  
   const cars = await findUserById(UserId);
   console.log(cars);
-  res.json(cars.Car);
+  if(cars){
+    res.json(cars.Car || {});
+
+  }else{
+    res.sendStatus(404);
+  }
+  
+  
   
 })
 
