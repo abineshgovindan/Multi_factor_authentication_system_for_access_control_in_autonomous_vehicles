@@ -50,24 +50,26 @@ const Car = ({number, carId, carName, licenseNumber}) => {
 
 
   return (
-    <div className="card card-compact w-sm bg-base-100 shadow-xl">
+    <>
+    <div className="card card-compact w-sm  bg--700 shadow-xl">
   <div className="card-body">
-    <h2 className="card-title">{carName}</h2>
+    <h2 className="card-title ">{carName}</h2>
 
     <div className="card-actions justify-end">
       <button
       onClick={handleOpen} 
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+       className=" justify-center btn btn-outline btn-info btn w-32 mt-3 rounded-full">
         Open Car
     </button>
     <button
     onClick={handleDelete}
-    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+     className=" justify-center btn btn-outline btn-error btn w-24 mt-3 ml-3 rounded-full">
         Delete
         </button>   
     </div>
   </div>
 </div>
+</>
     
    
 

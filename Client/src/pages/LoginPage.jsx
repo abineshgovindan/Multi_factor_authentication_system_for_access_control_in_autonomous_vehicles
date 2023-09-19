@@ -49,7 +49,9 @@ export function LoginPage() {
   useEffect(() => {
     if (actionData?.tokens) {
       login(actionData.tokens);
+     
       navigate("/");
+      
     }
   }, [actionData]);
 
@@ -66,7 +68,10 @@ export function LoginPage() {
   return (
     <div className="w-screen mt-8  flex items-center justify-center">
       <Form method="post">
-        <h1 className="flex m-7 justify-center items-center ">Login</h1>
+        <h1 className="flex m-7 justify-center items-center ">{
+          visible? "Register" : "Login"
+
+        }</h1>
         {actionData?.error && <div className="alert">{actionData?.error}</div>}
         <div className="flex flex-col">
           <fieldset className="form-control w-52">
@@ -78,18 +83,20 @@ export function LoginPage() {
               value="login"
               defaultChecked
               onChange={handleToggle}
-              
-            />
-            Login
-          </label>
-          <label htmlFor="register">
+              className="radio w-5 h-5 radio-info "
+              /> 
+              <span className="px-5  label-text text-xl">Login</span> 
+              </label>
+            
+            <label htmlFor="register">
             <input type="radio" 
             id="register" 
             name="type" 
             value="register"
             onChange={handleToggle}
+            className="radio mt-1 w-5 h-5 radio-info"
              />
-            Register
+            <span className="px-5  label-text text-xl">Register</span> 
           </label>
         </fieldset>
         </div>
@@ -136,7 +143,7 @@ export function LoginPage() {
         />
         <br />
 
-        <button type="submit" className="btn w-64 mt-10 rounded-full">
+        <button type="submit"  className=" justify-center btn btn-outline btn-info btn w-64 mt-10 rounded-full">
           Login
         </button>
       </Form>

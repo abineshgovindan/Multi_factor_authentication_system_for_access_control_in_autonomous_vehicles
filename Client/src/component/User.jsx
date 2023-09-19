@@ -12,6 +12,7 @@ const User = (props) => {
   const accessToken = useAuthStore((state) => state.accessToken);
   const userId = useAuthStore((state) => state.userId);
   const logout = useAuthStore((state) => state.logout);
+  const nagivate = useNavigate();
 
   const [CarFormFun, setCarFormFun] = useState(true);
 
@@ -38,6 +39,7 @@ const User = (props) => {
       licenseNumber,
       ownerId, 
   };
+  
   async function registerUser(event) {
     event.preventDefault();
     if (isLoggedIn){
@@ -46,6 +48,8 @@ const User = (props) => {
       config
       );
     console.log(data)
+    
+    
 
     }
 
@@ -60,19 +64,20 @@ return(
      
       {isLoggedIn ? (
         <>
-          <div className="">
-            <h2 className=" flex text-2xl justify-center items-center">Hello {props.name}</h2>
+          <div className="container mx-auto">
+            <h2 className=" flex text-2xl justify-center items-center">Hello {props?.name}</h2>
 
-            <div className="flex-1 mt-5 justify-center items-center">
-              <h3 className="text-xl text-cyan-400">Add Cars</h3>
+            <div className="mt-10 flex items-center justify-center w-screen">
+              
               
                 <form onSubmit={registerUser} >
+                  <h3 className=" flex text-xl justify-center items-center text-cyan-400">Add Cars</h3>
                   <input type="text" 
                   value={carName} 
                   onChange={(e)=> setcarName(e.target.value)}
                   required
                   placeholder="Car Name" 
-                  className="input input-bordered input-info mt-3 w-full max-w-xs" />
+                  className="input input-bordered items-center input-info mt-3 w-full max-w-xs" />
                   <br />
                   <input type="text" 
                   value={licenseNumber}
@@ -82,7 +87,7 @@ return(
                   className="input input-bordered input-info mt-3 w-full max-w-xs" />
                   <br />
                   
-                  <button type="submit" className=" justify-center btn btn-outline btn-info btn w-32 mt-3 rounded-full">
+                  <button type="submit" className="  justify-center items-center btn btn-outline btn-info  w-64 mt-3 rounded-full">
                     Add Car
                   </button>
                  </form>

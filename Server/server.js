@@ -75,15 +75,19 @@ app.post('/api/v1/postCar',isAuthenticated, async(req, res) => {
       throw new Error('Invalid Email credentials.');
     }
 
+    const car = await createCar(req.body);
+    console.log(car);
+    res.json(car);
+
 
   } catch(e){
     console.log(e);
+    res.json({"failed":404});
+
   }
   
 
-  const car = await createCar(req.body);
-  console.log(car);
-  res.json(car);
+  
   
 })
 app.get('/api/v1/car',isAuthenticated, async(req, res) => {
