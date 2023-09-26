@@ -144,7 +144,8 @@ export function LoginPage() {
         <br />
 
         <button type="submit"  className=" justify-center btn btn-outline btn-info btn w-64 mt-10 rounded-full">
-          Login
+          { visible? "Register" : "Login"}
+          
         </button>
       </Form>
     </div>
