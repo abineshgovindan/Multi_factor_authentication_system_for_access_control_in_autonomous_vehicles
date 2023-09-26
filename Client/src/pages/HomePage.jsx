@@ -44,7 +44,9 @@ export function HomePage() {
          />
         </>
       ) : (
-        <>You are not logged in</>
+        <> <div className="flex justify-center items-center m-5 p-5">
+          <h2 className=" text-lg text-red-500 text-center font-semibold ">You are not logged in</h2>
+        </div></>
       )}
     </>
   );
